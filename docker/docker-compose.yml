@@ -1,12 +1,15 @@
-version: '3.8'
+version: '3.3'
 volumes:
   dados:
 services:
   db:
-    image: postgres:12.12-bullseye
-    container_name: dbp3
+    image: postgres:13.1-alpine
+    container_name: gymWP
+    restart: always
     ports:
-      - "5432:5432"
+      -5432:5432
+    environment:
+      - POSTGRES_PASSWORD= password123
     volumes:
       # volume dos dados
       - dados:/var/lib/postgresql/data
