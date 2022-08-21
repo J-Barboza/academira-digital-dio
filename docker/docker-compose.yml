@@ -1,0 +1,15 @@
+version: '3.8'
+volumes:
+  dados:
+services:
+  db:
+    image: postgres:12.12-bullseye
+    container_name: dbp3
+    ports:
+      - "5432:5432"
+    volumes:
+      # volume dos dados
+      - dados:/var/lib/postgresql/data
+      # Scripts
+      - ./scripts:/scripts
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
