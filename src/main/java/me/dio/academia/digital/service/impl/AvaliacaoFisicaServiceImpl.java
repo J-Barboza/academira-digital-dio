@@ -15,42 +15,43 @@ import java.util.List;
 @Service
 public class AvaliacaoFisicaServiceImpl implements IAvaliacaoFisicaService {
 
-    @Autowired
-    private AvaliacaoFisicaRepository avaliacaoFisicaRepository;
+  @Autowired
+  private AvaliacaoFisicaRepository avaliacaoFisicaRepository;
 
-    @Autowired
-    private AlunoRepository alunoRepository;
+  @Autowired
+  private AlunoRepository alunoRepository;
 
-    @Override
-    public AvaliacaoFisica create(AvaliacaoFisicaForm form) {
-        AvaliacaoFisica avaliacaoFisica = new AvaliacaoFisica();
-        Aluno aluno = alunoRepository.findById(form.getAlunoId()).get();
+  @Override
+  public AvaliacaoFisica create(AvaliacaoFisicaForm form) {
+    AvaliacaoFisica avaliacaoFisica = new AvaliacaoFisica();
+    Aluno aluno = alunoRepository.findById(form.getAlunoId()).get();
+    //    implementar exception e implementar DTO retornando um View (mapper)
 
-        avaliacaoFisica.setAluno(aluno);
-        avaliacaoFisica.setPeso(form.getPeso());
-        avaliacaoFisica.setAltura(form.getAltura());
+    avaliacaoFisica.setAluno(aluno);
+    avaliacaoFisica.setPeso(form.getPeso());
+    avaliacaoFisica.setAltura(form.getAltura());
 
-        return avaliacaoFisicaRepository.save(avaliacaoFisica);
-    }
+    return avaliacaoFisicaRepository.save(avaliacaoFisica);
+  }
 
-    @Override
-    public AvaliacaoFisica get(Long id) {
-        return null;
-    }
+  @Override
+  public AvaliacaoFisica get(Long id) {
+    return null;
+  }
 
-    @Override
-    public List<AvaliacaoFisica> getAll() {
+  @Override
+  public List<AvaliacaoFisica> getAll() {
 
-        return avaliacaoFisicaRepository.findAll();
-    }
+    return avaliacaoFisicaRepository.findAll();
+  }
 
-    @Override
-    public AvaliacaoFisica update(Long id, AvaliacaoFisicaUpdateForm formUpdate) {
-        return null;
-    }
+  @Override
+  public AvaliacaoFisica update(Long id, AvaliacaoFisicaUpdateForm formUpdate) {
+    return null;
+  }
 
-    @Override
-    public void delete(Long id) {
+  @Override
+  public void delete(Long id) {
 
-    }
+  }
 }
