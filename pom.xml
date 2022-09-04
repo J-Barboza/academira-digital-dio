@@ -10,11 +10,12 @@
 	</parent>
 	<groupId>me.dio.academia</groupId>
 	<artifactId>academia-digital</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.5</version>
 	<name>academia-digital</name>
 	<description>Tutorial API RESTful modelando sistema de academia de ginástica</description>
 	<properties>
 		<java.version>11</java.version>
+		<start-class>me.dio.academia.AcademiaDigitalApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -53,6 +54,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<classifier>spring-boot</classifier>
+					<mainClass>${start-class}</mainClass>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -60,8 +63,14 @@
 						</exclude>
 					</excludes>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
